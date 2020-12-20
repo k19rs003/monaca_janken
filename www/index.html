@@ -77,10 +77,10 @@
         JankenScore.order(key, true).fetch()
         .then(function(result){
           high_score = result.get(key);
-          $("#highscore").html("ハイスコア：" + high_score + "連勝");
+          $("#highscore").html("ハイスコア：" + high_score + "点");
         })
         .catch(function(error){
-          $("#highscore").html("ハイスコア：" + high_score + "連勝");
+          $("#highscore").html("ハイスコア：" + high_score + "点");
         });
   
         win_num = 0;
@@ -127,7 +127,7 @@
     </script>
 </head>
 <body>
-  <h1 class="text-white bg-primary">じゃんけん 連勝チャレンジ！</h1>
+  <h1 class="text-white bg-primary">かけ算テスト！！</h1>
   <div id="highscore" class="text-white bg-secondary"></div>
   <div class="mx-auto" style="width: 200px">
     <a onclick="gu();" class="btn btn-outline-primary hand" role="button">ぐー</a>
