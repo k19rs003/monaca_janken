@@ -42,6 +42,25 @@
       function start() {
         //start非表示
          $("#start").css("display", "none");
+
+         //問題表示
+         l=Math.floor(Math.random()*(99-10)+10);
+         document.question.left.value=l;
+         r=Math.floor(Math.random()*(99-10)+10);
+         document.question.right.value=r;
+      }
+
+      function check() {
+        var sahen = Number(document.question.left.value);
+        var uhen = Number(document.question.right.value);
+        var total = sahen + uhen;
+        var kai = Number(document.question.answer.value);
+        //表示時間カウント
+        if(total==kai){
+          document.question.mark.value="〇";
+         }else{
+           document.question.mark.value="×";
+         }
       }
 
       function janken(player_hand){
@@ -127,11 +146,15 @@
     <a onclick="newgame();" class="btn btn-info text-white" id="newgame" role="button">New Game</a>
   </div>
 
+  <form name="question">
+  <p>
   <input type="text" class="mondai" id="left" name="left"><a class="mondai" id="plus">+</a>
   <input type="text"id="right"name="reight"><a id="equal">=</a>
   <input type="text"id="answer"name="answer">
-  <button onclick="check()" id="check">決定</button>
+  <button onclick="check()" id="che">決定</button>
   <input type="text" id="mark"name="mark">
+  </p>
+  </from>
 
   <div id="result" class="text-white bg-secondary">
   </div>
