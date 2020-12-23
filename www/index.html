@@ -39,16 +39,9 @@
       // ハイスコア
       let high_score = 0;
 
-      function gu() {
-        janken(hand_gu);
-      }
-
-      function choki() {
-        janken(hand_choki);
-      }
-
-      function pa() {
-        janken(hand_pa);
+      function start() {
+        //start非表示
+         $("#start").css("display", "none");
       }
 
       function janken(player_hand){
@@ -127,12 +120,10 @@
     </script>
 </head>
 <body>
-  <h1 class="text-white bg-primary">かけ算テスト！！</h1>
+  <h1 class="text-white bg-primary">足し算テスト！！</h1>
   <div id="highscore" class="text-white bg-secondary"></div>
-  <div class="mx-auto" style="width: 200px">
-    <a onclick="gu();" class="btn btn-outline-primary hand" role="button">ぐー</a>
-    <a onclick="choki();" class="btn btn-outline-primary hand" role="button">ちょき</a>
-    <a onclick="pa();" class="btn btn-outline-primary hand" role="button">ぱー</a>
+  <div class="mx-auto" style="width: 50px">
+    <a onclick="start();" class="btn btn-info text-white" id="start" role="button">Start</a>
     <a onclick="newgame();" class="btn btn-info text-white" id="newgame" role="button">New Game</a>
   </div>
   <div id="result" class="text-white bg-secondary">
