@@ -9,24 +9,6 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="keys.js"></script>
     <script>
-      // じゃんけんのハンド用変数（定数）
-      const hand_gu=0;
-      const hand_choki=1;
-      const hand_pa=2;
-      // ハンド表示用配列
-      const hand_text = ["ぐー", "ちょき", "ぱー"];
-      // 勝敗判定用変数（定数）
-      const judge_win=0;
-      const judge_draw=1;
-      const judge_loose=2;
-      // 勝敗判定表
-      const judge = [
-        [judge_draw, judge_win, judge_loose],
-        [judge_loose, judge_draw, judge_win],
-        [judge_win, judge_loose, judge_draw],
-      ];
-      // 勝敗結果表示用配列
-      const judge_text = ["勝ち", "あいこ", "負け"];
 
       // 連勝数記録
       let win_num = 0;
@@ -55,11 +37,17 @@
         var uhen = Number(document.question.right.value);
         var total = sahen + uhen;
         var kai = Number(document.question.answer.value);
-        //表示時間カウント
         if(total==kai){
-          document.question.mark.value="〇";
+          start();
+          let msg="結果:" + "○";
+          $("#result").html(msg);
+          win_num++;
+          $("#result2").html(win_num + "連続正解!");
+          document.question.answer.value = "";
          }else{
-           document.question.mark.value="×";
+           let msg="結果:" + "×";
+           $("#result").html(msg);
+           gameover();
          }
       }
 
@@ -151,8 +139,10 @@
   <input type="text" class="mondai" id="left" name="left"><a class="mondai" id="plus">+</a>
   <input type="text"id="right"name="reight"><a id="equal">=</a>
   <input type="text"id="answer"name="answer">
-  <button onclick="check()" id="che">決定</button>
-  <input type="text" id="mark"name="mark">
+
+  <div class="mx-auto" style="width: 30px">
+    <a onclick="check();" class="btn btn-info text-white" id="check" role="button">決定</a>
+  </div>
   </p>
   </from>
 
