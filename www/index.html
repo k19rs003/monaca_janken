@@ -84,12 +84,11 @@
         });
   
         win_num = 0;
-        // ハンドボタン表示
-        $(".hand").css("display", "inline");
         // ニューゲームボタン非表示
         $("#newgame").css("display", "none");
-        $("#result").html("じゃんけん・・・ぽん")
+        $("#result").html("ハイスコア目指そう")
         $("#result2").html("");
+         document.question.answer.value = "";
       }
 
       function gameover() {
@@ -109,13 +108,11 @@
           db = new AdditionScore();
           db.set(key, win_num).save();
 
-          msg += win_num +  "連勝でした。<br>";
+          msg += win_num +  "問連続正解でした。<br>";
         } else {
-          msg += "1回も勝てませんでした。<br>次は頑張ろう";
+          msg += "1回も正解できませんでしたでした。<br>もっと頑張ろう";
         }
         $("#result2").html(msg);
-        // ハンドボタン非表示
-        $(".hand").css("display", "none");
         // ニューゲームボタン表示
         $("#newgame").css("display", "inline");
       }
@@ -140,7 +137,7 @@
   <input type="text"id="right"name="reight"><a id="equal">=</a>
   <input type="text"id="answer"name="answer">
 
-  <div class="mx-auto" style="width: 30px">
+  <div class="mx-auto" style="width: 50px">
     <a onclick="check();" class="btn btn-info text-white" id="check" role="button">決定</a>
   </div>
   </p>
