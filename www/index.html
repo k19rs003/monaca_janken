@@ -15,7 +15,7 @@
 
       // にふくら用おまじない
       let ncmb = new NCMB(appKey, clientKey);
-      let JankenScore = ncmb.DataStore("JankenScore");
+      let AdditionScore = ncmb.DataStore("AdditionScore");
       const key = "score";
 
       // ハイスコア
@@ -74,7 +74,7 @@
 
       function newgame() {
         // ハイスコア表示
-        JankenScore.order(key, true).fetch()
+        AdditionScore.order(key, true).fetch()
         .then(function(result){
           high_score = result.get(key);
           $("#highscore").html("ハイスコア：" + high_score + "点");
@@ -95,7 +95,7 @@
       function gameover() {
         let msg = "GAME OVER<br>";
         if(win_num>0) {
-          JankenScore.order(key, true).fetch()
+          AdditionScore.order(key, true).fetch()
           .then(function(result){
             high_score = result.get(key);
             if(win_num > high_score) {
@@ -106,7 +106,7 @@
           });
 
           // スコア記録
-          db = new JankenScore();
+          db = new AdditionScore();
           db.set(key, win_num).save();
 
           msg += win_num +  "連勝でした。<br>";
