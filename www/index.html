@@ -21,9 +21,16 @@
       // ハイスコア
       let high_score = 0;
 
+      function init() {
+        $("#check").css("display", "none");
+        $("#result2").css("display", "none");
+      }
+
       function start() {
         //start非表示
          $("#start").css("display", "none");
+         $("#check").css("display", "inline");
+         $("#result2").css("display", "inline");
 
          //問題表示
          l=Math.floor(Math.random()*(99-10)+10);
@@ -91,7 +98,7 @@
 
           msg += win_num +  "問連続正解でした。<br>";
         } else {
-          msg += "1回も正解できませんでしたでした。<br>もっと頑張ろう";
+          msg += "1回も正解できませんでした。<br>もっと頑張ろう";
         }
         $("#result2").html(msg);
         // ニューゲームボタン表示
@@ -104,7 +111,7 @@
       })
     </script>
 </head>
-<body>
+<body onLoad="javascript:init();">
   <h1 class="text-white bg-primary">足し算テスト！！</h1>
   <div id="highscore" class="text-white bg-secondary"></div>
   <div class="mx-auto" style="width: 50px">
@@ -114,7 +121,7 @@
 
   <form name="question">
   <p>
-  <input type="text" class="mondai" id="left" name="left"><a class="mondai" id="plus">+</a>
+  <input type="text" id="left" name="left"><a id="plus">+</a>
   <input type="text"id="right"name="reight"><a id="equal">=</a>
   <input type="text"id="answer"name="answer">
 
